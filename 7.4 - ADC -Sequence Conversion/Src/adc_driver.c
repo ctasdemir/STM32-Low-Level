@@ -120,14 +120,14 @@ void ADC1_IRQHandler()
 	if( (__CHECK_FLAG(ADC1->ISR,ADC_ISR_EOC) && __CHECK_FLAG(ADC1->IER,ADC_IER_EOCIE)))
 		
 	{
-	adc_result[adc_index++] = ADC1->DR;
-  
-	if( (ADC1->ISR & ADC_ISR_EOS) !=0 )
-	{
-		adc_index = 0;	
-	}
-	
-	//ADC1->ISR |= ADC_ISR_EOS;
-	ADC1->ISR |= ADC_ISR_EOC;		
+		adc_result[adc_index++] = ADC1->DR;
+		
+		if( (ADC1->ISR & ADC_ISR_EOS) !=0 )
+		{
+			adc_index = 0;	
+		}
+		
+		//ADC1->ISR |= ADC_ISR_EOS;
+		ADC1->ISR |= ADC_ISR_EOC;		
 	}
 }

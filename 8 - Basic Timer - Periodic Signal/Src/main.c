@@ -46,8 +46,8 @@ int main(void)
   {
  
 	 //	user_led_toggle();
-			//timer6_printf_cnt_value();
-			//HAL_Delay(100);			
+			timer6_printf_cnt_value();
+			HAL_Delay(100);			
   }
 }
 

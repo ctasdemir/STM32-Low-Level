@@ -13,20 +13,21 @@ void timer6_init(void)
 	TIM6->PSC = 48000 - 1; 
 	
 	// Reload in every 100 ms
-	TIM6->ARR = 100; 
+	TIM6->ARR = 500; 
 	
 	// Enable Timer Update Interrupt
 	TIM6->DIER |= TIM_DIER_UIE;
 
 	// Enable TIM6 Interrupt on NVIC
-	NVIC_EnableIRQ(TIM6_IRQn);
 	NVIC_SetPriority(TIM6_IRQn,2);
+	NVIC_EnableIRQ(TIM6_IRQn);
+	
 }
 
 // Set period (ms)
 void timer6_set_period(uint16_t period)
 {
-	TIM6->ARR = period-1;
+	TIM6->ARR = period;
 }
 
 uint16_t timer6_get_counter_value(void)
